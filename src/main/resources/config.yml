@@ -1,0 +1,5 @@
+# Worlds where players should not be penalized for dying
+disabled-worlds:
+  - "disabled_world"
+# Fee as a percentage of the player's total balance
+fee: 0.15

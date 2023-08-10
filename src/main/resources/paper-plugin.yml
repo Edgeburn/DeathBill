@@ -1,0 +1,19 @@
+name: DeathBill
+version: '${version}'
+main: com.edgeburnmedia.deathbill.DeathBill
+api-version: '1.20'
+has-open-classloader: true
+authors:
+  - Edgeburn Media
+dependencies:
+  server:
+    Vault:
+      load: BEFORE
+      required: true
+permissions:
+  deathbill.admin:
+    default: op
+    description: Players with this permission can reload the config
+  deathbill.exempt:
+    default: false
+    description: Players with this permission will not be charged for dying
