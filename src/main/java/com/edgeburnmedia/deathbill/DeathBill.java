@@ -73,7 +73,7 @@ public final class DeathBill extends JavaPlugin implements Listener {
                                                 String.format("%.2f", delta))
                                         .color(NamedTextColor.GREEN))
                                 .append(Component.text(" for their recent death.").color(NamedTextColor.RED))
-                                .append(Component.text("Click here to refund them").color(NamedTextColor.BLUE).clickEvent(ClickEvent.runCommand("eco give " + p.getName() + delta)))
+                                .append(Component.text(  " Click here to refund them").color(NamedTextColor.BLUE).clickEvent(ClickEvent.suggestCommand("/eco give " + p.getName() + " " + delta)))
                                 .build()
                         );
                     }
