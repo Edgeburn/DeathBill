@@ -1,6 +1,7 @@
 package com.edgeburnmedia.deathbill;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.Player;
@@ -63,6 +64,20 @@ public final class DeathBill extends JavaPlugin implements Listener {
                         .build()
                 );
                 getLogger().info(String.format("%s was charged %.2f for their recent death. Use the command /eco give %s %.2f to refund them", p.getName(), delta, p.getName(), delta));
+                getServer().getOnlinePlayers().forEach(player -> {
+                    if (player.hasPermission("deathbill.alert")) {
+                        player.sendMessage(Component.text()
+                                .append(p.displayName())
+                                .append(Component.text(" was charged ").color(NamedTextColor.RED))
+                                .append(Component.text("$" +
+                                                String.format("%.2f", delta))
+                                        .color(NamedTextColor.GREEN))
+                                .append(Component.text(" for their recent death.").color(NamedTextColor.RED))
+                                .append(Component.text("Click here to refund them").color(NamedTextColor.BLUE).clickEvent(ClickEvent.runCommand("eco give " + p.getName() + delta)))
+                                .build()
+                        );
+                    }
+                });
             }
         }
     }

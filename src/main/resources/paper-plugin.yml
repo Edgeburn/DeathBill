@@ -17,3 +17,6 @@ permissions:
   deathbill.exempt:
     default: false
     description: Players with this permission will not be charged for dying
+  deathbill.alert:
+    default: op
+    description: Players with this permission get a chat alert when players die and get charged for it
